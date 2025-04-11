@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:skyblue;
+    }
+
+    .header {
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    .wishlist-section {
+      padding: 20px;
+      background: #fff9e6;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 80%;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .wishlist-section h2 {
+      text-align: center;
+      color: dodgerblue;
+    }
+
+    .wishlist-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .wishlist-section li {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #555;
+      background: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .wishlist-section button {
+      background-color: dodgerblue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .wishlist-section button:hover {
+      background-color:lime;
+      color: #000;
+    }
+
+    .add-item-form {
+      margin: 20px auto;
+      padding: 20px;
+      width: 80%;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .add-item-form input {
+      margin: 10px 0;
+      padding: 10px;
+      width: 80%;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .add-item-form button {
+      background-color: dodgerblue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .add-item-form button:hover {
+      background-color: lime;
+      color: black;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 20px auto;
+      margin-left: 590px;
+      padding: 10px 20px;
+      font-size: 17px;
+      color: white;
+      background-color: dodgerblue;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      border: 1px solid blue;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    .button:hover {
+      background-color: lime;
+      color: black;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 10px 0;
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Wishlist</h1>
+  </header>
+
+  <section class="wishlist-section">
+    <h2>Your Wishlist</h2>
+    <ul id="wishlist">
+      <li>
+        Alloy Wheels -  ₱ 75,000
+        <button onclick="removeItem(this)">Remove</button>
+      </li>
+      <li>
+        Koenigsegg Jesko -  ₱ 240,000,000
+        <button onclick="removeItem(this)">Remove</button>
+      </li>
+      <li>
+        Bugatti Chiron - ₱ 175,000,000
+        <button onclick="removeItem(this)">Remove</button>
+      </li>
+    </ul>
+    <button class="button" onclick="clearWishlist()">Clear Wishlist</button>
+  </section>
+
+  <section class="add-item-form">
+    <h3>Add a New Item to Your Wishlist</h3>
+    <input type="text" id="item-name" placeholder="Name" required>
+    <input type="text" id="item-price" placeholder="Price" required>
+    <button onclick="addItem()">Add Item</button>
+  </section>
+
+  <a href="home.html" class="button">Return to Home</a>
+
+  <footer>
+    &copy; 2024 Masubay Car Parts Shop. All Rights Reserved.
+  </footer>
+
+  <script>
+    function removeItem(button) {
+      const listItem = button.parentElement;
+      listItem.remove();
+    }
+
+    function clearWishlist() {
+      const wishlist = document.getElementById('wishlist');
+      wishlist.innerHTML = '<p>Your wishlist is empty.</p>';
+    }
+
+    function addItem() {
+      const nameInput = document.getElementById('item-name');
+      const priceInput = document.getElementById('item-price');
+
+      const itemName = nameInput.value.trim();
+      const itemPrice = priceInput.value.trim();
+
+      if (itemName === '' || itemPrice === '') {
+        alert('Please fill out both fields before adding an item.');
+        return;
+      }
+
+      const wishlist = document.getElementById('wishlist');
+      const newItem = document.createElement('li');
+      newItem.innerHTML = `${itemName} - $${itemPrice} <button onclick="removeItem(this)">Remove</button>`;
+      wishlist.appendChild(newItem);
+
+      nameInput.value = '';
+      priceInput.value = '';
+    }
+  </script>
+</body>
+</html>

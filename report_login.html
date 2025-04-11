@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reservation_form.css">
+    <style>
+         body {
+            font-family: 'Arial', sans-serif;
+            padding: 10px;
+            background-image:url(bg11.jpg) ;
+            background-size: cover;
+        }
+
+        header {
+            font-weight: bold;
+           font-size: 3em;
+            color: blue;
+            margin-left:200px;
+            text-align: center;
+            margin: 75px;
+        }
+
+        form {
+            background-image:url(bg12.jpg);
+            background-size: cover;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-family: Verdana;
+            color: blue;
+            margin:10px;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        input, select {
+            padding: 10px;
+            margin-bottom: 0;
+            border: 2px solid blue;
+            border-radius: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input:focus, select:focus {
+            border-color: #2fff06;
+        }
+
+        button {
+            padding: 15px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: 2px solid #050505;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #15ff00;
+        }.exit-link {
+            position: fixed;
+           top: 50PX;
+            left: 20px;
+            list-style: none;
+            margin-right: 30px;
+            padding: 0;
+        }
+
+        .exit-link li {
+            display: inline-block;
+            margin-left:80px;
+        }
+
+        .exit-link a {
+            display: block;
+            padding: 4px 35px;
+            font-size: 2.3em;
+            background-color: #48f164;
+            color:white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .exit-link a:hover {
+            background-color: #0084ff;
+        }
+    </style>
+    <header>Admin / Manager Reports Login</header>
+</head>
+<body>
+    <form action="authenticated.php" method="post">
+        <label for="userType">User Type</label>
+        <select id="user_type" name="user_type" required>
+            <option value="admin">Admin</option>
+            <option value="manager">Manager</option>
+            <option value="masterlist">Masterlist</option>
+        </select>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="enter your username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="enter your password" name="password" required>
+
+      
+        
+        <button type="submit">Login</button>
+    </form>
+    <ul class="exit-link">
+        <li><a href="home.html">EXIT</a></li>
+    </ul>
+</body>
+</html>

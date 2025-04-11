@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Dealership Sales Events</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: skyblue;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 5px;
+      background: #333;
+      color: skyblue;
+    }
+
+    header h1 {
+      font-size: 2.2em;
+      margin-bottom: 5px;
+      text-decoration: underline;
+    }
+
+    header p {
+      font-size: 1em;
+    }
+
+    main {
+      padding: 10px;
+      flex: 1;
+    }
+
+    #events-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    #events-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2.2em;
+      text-decoration: underline;
+    }
+
+    #events-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .event-card {
+      background: #fff;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .event-card h3 {
+      margin-top: 0;
+      color: #007BFF;
+      text-decoration: underline;
+    }
+
+    .event-card p {
+      margin: 5px 0;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 17px;
+      color: white;
+      background-color: dodgerblue;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      border: 1px solid blue;
+      cursor: pointer;
+      margin: 20px auto;
+      margin-left: 520px;
+    }
+
+    .button:hover {
+      background-color: lime;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚗 Upcoming Sales Events 😍</h1>
+    <p>🤯 Don't miss our exclusive offers and events! 🤯</p>
+  </header>
+
+  <main>
+    <section id="events-container">
+      <h2>Our Events</h2>
+      <div id="events-list">
+        <!-- Dynamic Events will load here -->
+      </div>
+      <a href="home.html" class="button">Return to Home</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Masubay Sports Car Dealership. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const eventsList = document.getElementById("events-list");
+
+    const events = [
+      {
+        title: "End of Year Mega Sale",
+        date: "December 23-28, 2024",
+        description: "Save up to 25% on select car models. Visit us for special financing options!"
+      },
+      {
+        title: "New Year Clearance Event",
+        date: "January 1-5, 2025",
+        description: "Out with the old and in with the new! Enjoy discounts on last year's models."
+      },
+      {
+        title: "Valentine's Day Special",
+        date: "February 14, 2025",
+        description: "Show your love with a new ride! Special couples' discounts available."
+      },
+      {
+        title: "Spring Festival Offers",
+        date: "April 15, 2025",
+        description: "Celebrate spring with fresh deals on SUVs and sedans."
+      },
+      {
+        title: "Black Friday Car Blitz",
+        date: "November 29, 2024",
+        description: "Massive markdowns and flash sales for one day only. Don't miss out!"
+      },
+      {
+        title: "Luxury Line Launch Party",
+        date: "March 5, 2025",
+        description: "Join us for the unveiling of our new luxury car series. Exclusive perks for attendees."
+      },
+      {
+        title: "Family Fun Day Sale",
+        date: "June 15, 2025",
+        description: "Enjoy free ice cream for kids and discounts on family-sized vehicles!"
+      },
+      {
+        title: "Back-to-School Bonanza",
+        date: "August 20, 2025",
+        description: "Free backpacks and school supplies with every car purchase!"
+      },
+      {
+        title: "Test Drive and Dine",
+        date: "September 10, 2025",
+        description: "Take a test drive and receive a free voucher for a gourmet dinner."
+      },
+      {
+        title: "Freebie Friday",
+        date: "October 18, 2025",
+        description: "Buy a car and get a free car cover and cleaning kit!"
+      },
+      {
+        title: "Holiday Cheer Giveaway",
+        date: "December 10, 2025",
+        description: "Win exciting holiday prizes with every purchase during our special event."
+      },
+      {
+        title: "Weekend Deal Fiesta",
+        date: "May 25, 2025",
+        description: "Enjoy free coffee and snacks while browsing our weekend deals."
+      }
+    ];
+
+    function addEventToList(title, date, description) {
+      const eventCard = document.createElement("div");
+      eventCard.classList.add("event-card");
+
+      eventCard.innerHTML = `
+        <h3>${title}</h3>
+        <p><strong>Date:</strong> ${date}</p>
+        <p>${description}</p>
+      `;
+
+      eventsList.appendChild(eventCard);
+    }
+
+    function loadEvents() {
+      events.forEach(event => {
+        addEventToList(event.title, event.date, event.description);
+      });
+    }
+
+    // Load events when the page loads
+    document.addEventListener("DOMContentLoaded", loadEvents);
+  </script>
+</body>
+</html>

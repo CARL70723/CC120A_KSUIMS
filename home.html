@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Car Dealership</title>
+    <style>
+        body {
+            font-family: Algerian, sans-serif;
+            color: skyblue;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            width: 100%;
+            background-color: #6e6c6c;
+            color: rgb(0, 183, 255);
+            padding: .1px 0; /* Reduced padding for smaller height */
+            text-align: center;
+            font-size: .9em; /* Adjusted font size for smaller height */
+        }
+        
+        .date-time {
+            position: fixed;
+            top: 10px;
+            left: 20px;
+            font-size: 15px;
+            color: rgb(0, 0, 0);
+            background-color: rgb(0, 183, 255);
+            padding: 10px 15px;
+            border-radius: 5px;
+            box-shadow: 0 15px 30px lawngreen
+        }
+        nav {
+            width: 100%;
+            text-align: center;
+            margin: 15px 0;
+        }
+        nav b {
+            color: black;
+            background-color: rgb(0, 183, 255);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 2px;
+            border-radius: 10px;
+            box-shadow: 0 10px 19px rgb(0, 183, 255);
+        }
+        nav b:hover {
+            background-color: lawngreen;
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px lime;
+        }
+        nav a {
+            color: black;
+            background-color: lawngreen;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 2px;
+            border-radius: 10px;
+            box-shadow: 0 10px 19px lawngreen;
+        }
+        nav a:hover {
+            background-color:rgb(0, 183, 255);
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgb(0, 183, 255);
+        }
+        .image-container {
+            width: 90%;
+            margin: 3px 0;
+        }
+        .image-container img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            margin: 20px auto;
+            width: 90%;
+        }
+        .container, .form-container {
+            width: 20%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 19px rgb(12, 12, 12);
+            text-align: center;
+        }
+        h5 {
+            padding-top: 1px;
+            padding-bottom: 1px;
+            color: rgb(0, 183, 255);
+            font-size: 2.3em;
+            text-decoration: underline;
+        }
+        h4 {
+            font-size: .3em;
+            color: rgb(0, 0, 0);
+        } 
+        h3 {
+            font-size: .5em;
+            color: black;
+        }
+        .form-container label {
+            font-size: 0.7em;
+            color: black;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-container input[type="date"] {
+            width: 65%;
+            padding: 2px;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-container button {
+            width: 50%;
+            padding-top: 10px;
+            padding: 5px;
+            font-size: 0.9em;
+            background-color: #00c3ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .form-container button:hover {
+            background-color: lawngreen;
+        }
+    
+        .container {
+            width: 40%;
+            background-color: rgb(200, 234, 243);
+            width: 85%;
+            margin-left: 1px;
+            margin-top: 5px;
+            margin-bottom: 500px;
+            font-size: 14px;
+            padding: 0px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 10px 19px black;
+            flex-direction: row;
+            align-items: center;
+        }
+        h6 {
+            color: rgb(0, 183, 255);
+            font-size: 1.9em;
+            margin-top: 2px;
+            margin-bottom: 20px;
+            padding-top: 0px;
+            font-family: 'Lucida Sans';
+            font-style: initial;
+            text-decoration: underline;
+        } 
+        h4 { 
+            color: rgb(0, 183, 255);
+            font-size: 17px;
+            font-family: Georgias;
+            margin-bottom: 5px; /* Reduced margin below h4 */
+        }
+        h2 {
+            color: rgb(0, 183, 255);
+            font-size: 1em;
+            margin-top: 0px;
+            padding-top: 0px;
+            font-family: 'Lucida Sans';
+            font-style: initial;
+            text-decoration: underline;
+        }
+        
+        h3 {
+            font-size: 25px;
+            font-family: Georgias;
+            text-decoration: underline;
+            margin-top: 5px; /* Reduced margin above h3 */
+        }
+       
+        .car-gallery {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+        }
+        .car-card {
+            border-radius: 15px;
+            box-shadow: 0 6px 6px rgb(0, 183, 255);
+            padding: 15px;
+            margin: 15px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .car-card:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 15px 30px lime;
+        }
+        .car-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .button-group {
+            margin-top: 10px;
+        }
+        .button-group button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buy-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .buy-btn:hover {
+            background-color: lawngreen;
+        }
+        .details-btn {
+            background-color: #2196F3;
+            color: white;
+        }
+        .details-btn:hover {
+            background-color: lawngreen;
+        }
+        .home-button-wrapper {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .home-button {
+            background-color: #6e6c6c;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            box-shadow: 0 10px 10px skyblue;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 19px;
+            text-decoration: none;
+        }
+        .home-button:hover {
+            background-color: lawngreen;
+            color: black;
+        }
+        footer {
+            color: skyblue;
+            background-color: #6e6c6c;
+            font-size: 27px;
+            text-decoration: underline;
+            padding: 25px 35px;
+            margin-bottom: 0px;
+            margin-top: 20px;
+            display: block;
+            border-radius: 45px;
+            box-shadow: 0 10px 10px skyblue;
+            position: static;
+        }
+    </style>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString();
+            document.getElementById("current-date").innerText = date;
+            document.getElementById("current-time").innerText = time;
+        }
+        setInterval(updateDateTime, 1000);
+        window.onload = updateDateTime;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Azure Haven Beach Resort Room Reservation</h1>
+    </header>
+    <div class="date-time">
+        <div id="current-date"></div>
+        <div id="current-time"></div>
+    </div>
+    <nav >
+        <a href="wishlist.html">Wishlist</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="admin_login.html">Login</a>
+        <a href="report_login.html">Reports</a>
+        <a href="other.html">Souvenir Shops</a>
+        <a href="faq.html">FAQ</a>
+         <a href="#buy">Book Now</a>
+        <a href="review.html">Reviews</a>
+        <a href="follow.html">Follow Us</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="about.html">About</a>
+    </nav >
+    <div class="image-container">
+        <img src="beach1.jpg" alt="Beach Resort">
+    </div>
+    <div class="main-container">
+        <div id="home" class="container">
+            <h6>Welcome To Azure Haven Resort Room Reservation </h6>
+            <h4>Discover the ultimate getaway at Paradise Beach Resort, where relaxation meets luxury. Nestled along pristine shores, our resort offers the perfect blend of serene surroundings, world-class amenities, and exceptional hospitality.
+    
+                Whether you're planning a romantic retreat, a family vacation, or a solo escape, we have the ideal room waiting for you. From cozy beachfront cottages to spacious suites with breathtaking ocean views, every stay promises unmatched comfort and tranquility.</h4>
+        </div>
+        <div class="form-container">
+            <h2>Room Available</h2>
+            <button onclick="location.href='check_availability.php'">Check Availability</button>
+        </div>
+        <div class="form-container">
+            <h2>Login Form</h2>
+            <label for="check-in">Username</label>
+            <input type="text" id="check-in" name="check-in">
+            <label for="check-out">Password</label>
+            <input type="password" id="check-out" name="check-out">
+            <button onclick="location.href='admin.html'">Login</button>
+        </div>
+    </div>
+    
+    <div id="buy" class="container">
+        <h5>Available Rooms</h5>
+        <div class="room-gallery">
+            <div class="room-card">
+                <img src="bg1.jpg" alt="Family Size Room">
+                <h3>Room Type: Family Size</h3>
+                <h4>Air-conditioned</h4>
+                <h4>Max Adults: 4, Max Children: 0</h4>
+                <h4>Rate per Night: ₱1800</h4>
+                <div class="button-group">
+                    <button class="buy-btn" onclick="location.href='transaction.php?room=Family+Size&price=₱1800';">Book</button>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="bg2.jpg" alt="Couples Room">
+                <h3>Room Type: For Couples</h3>
+                <h4>Air-conditioned</h4>
+                <h4>Max Adults: 2, Max Children: 0</h4>
+                <h4>Rate per Night: ₱800</h4>
+                <div class="button-group">
+                    <button class="buy-btn" onclick="location.href='transaction.php?room=For+Couples&price=₱800';">Book</button>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="bg3.jpg" alt="Couples Room">
+                <h3>Room Type: For Couples</h3>
+                <h4>Air-conditioned</h4>
+                <h4>Max Adults: 2, Max Children: 0</h4>
+                <h4>Rate per Night: ₱800</h4>
+                <div class="button-group">
+                    <button class="buy-btn" onclick="location.href='transaction.php?room=For+Couples&price=₱800';">Book</button>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="bg4.jpg" alt="Family Size Room">
+                <h3>Room Type: Family Size</h3>
+                <h4>Air-conditioned</h4>
+                <h4>Max Adults: 4, Max Children: 0</h4>
+                <h4>Rate per Night: ₱1800</h4>
+                <div class="button-group">
+                    <button class="buy-btn" onclick="location.href='transaction.php?room=Family+Size&price=₱1800';">Book</button>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="bg5.jpg" alt="Couples Room">
+                <h3>Room Type: For Couples</h3>
+                <h4>Air-conditioned</h4>
+                <h4>Max Adults: 2, Max Children: 0</h4>
+                <h4>Rate per Night: ₱800</h4>
+                <div class="button-group">
+                    <button class="buy-btn" onclick="location.href='transaction.php?room=For+Couples&price=₱800';">Book</button>
+                </div>
+            </div>
+    
+            <div class="room-card">
+                <img src="bg6.jpg" alt="Couples Room">
+                <h3>Room Type: For Couples</h3>
+                <h4>Air-conditioned</h4>
+                <h4>Max Adults: 2, Max Children: 0</h4>
+                <h4>Rate per Night: ₱800</h4>
+                <div class="button-group">
+                    <button class="buy-btn" onclick="location.href='transaction.php?room=For+Couples&price=₱800';">Book</button>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="bg7.jpg" alt="Family Size Room">
+                <h3>Room Type: Family Size</h3>
+                <h4>Air-conditioned</h4>
+                <h4>Max Adults: 4, Max Children: 0</h4>
+                <h4>Rate per Night: ₱1800</h4>
+                <div class="button-group">
+                    <button class="buy-btn" onclick="location.href='transaction.php?room=Family+Size&price=₱1800';">Book</button>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="bg8.jpg" alt="Family Size Room">
+                <h3>Room Type: Family Size</h3>
+                <h4>Air-conditioned</h4>
+                <h4>Max Adults: 4, Max Children: 0</h4>
+                <h4>Rate per Night: ₱1800</h4>
+                <div class="button-group">
+                    <button class="buy-btn" onclick="location.href='transaction.php?room=Family+Size&price=₱1800';">Book</button>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="bg9.jpg" alt="Family Size Room">
+                <h3>Room Type: Family Size</h3>
+                <h4>Air-conditioned</h4>
+                <h4>Max Adults: 4, Max Children: 0</h4>
+                <h4>Rate per Night: ₱1800</h4>
+                <div class="button-group">
+                    <button class="buy-btn" onclick="location.href='transaction.php?room=Family+Size&price=₱1800';">Book</button>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="bg10.jpg" alt="Big Family Size Room">
+                <h3>Room Type: Big Family Size</h3>
+                <h4>Air-conditioned</h4>
+                <h4>Max Adults: 6, Max Children: 0</h4>
+                <h4>Rate per Night: ₱2500</h4>
+                <div class="button-group">
+                    <button class="buy-btn" onclick="location.href='transaction.php?room=Big+Family+Size&price=₱2500';">Book</button>
+                </div>
+            </div>
+            
+            <div class="room-card">
+                <img src="bg11.jpg" alt="Big Family Size Room">
+                <h3>Room Type: Big Family Size</h3>
+                <h4>Air-conditioned</h4>
+                <h4>Max Adults: 6, Max Children: 0</h4>
+                <h4>Rate per Night: ₱2500</h4>
+                <div class="button-group">
+                    <button class="buy-btn" onclick="location.href='transaction.php?room=Big+Family+Size&price=₱2500';">Book</button>
+                </div>
+            </div>
+        </div>
+        <a href="home.html" class="home-button">Return to Home</a>
+    </div>
+    <footer>
+        &copy; 2025 Azure Haven Beach Resort. All Rights Reserved.
+    </footer>
+    </body>
+    </html>
+    

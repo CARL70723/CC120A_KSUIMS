@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: skyblue;
+    }
+
+    .reviews-section {
+      padding: 20px;
+      background: #e6f7ff;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 80%;
+      box-shadow: 0 6px 6px skyblue;
+    }
+
+    .reviews-section h2 {
+      text-align: center;
+      color: #004085;
+      text-decoration: underline;
+    }
+
+    .review {
+      margin: 15px 0;
+      padding: 10px;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0 6px 6px skyblue;
+    }
+
+    .review h3 {
+      color: #333;
+      font-weight: bold;
+    }
+
+    .review p {
+      margin-left: 20px;
+      color: #555;
+    }
+
+    .add-review-section {
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 80%;
+      box-shadow: 0 6px 6px skyblue;
+    }
+
+    .add-review-section h3 {
+      text-align: center;
+      color: #004085;
+    }
+
+    .add-review-section input,
+    .add-review-section textarea,
+    .add-review-section button {
+      display: block;
+      width: 80%;
+      margin: 10px auto;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 6px 6px skyblue;
+    }
+
+    .add-review-section button {
+      background-color: dodgerblue;
+      color: white;
+      cursor: pointer;
+    }
+
+    .add-review-section button:hover {
+      background-color: lime;
+      color: black;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 20px auto;
+      margin-left: 600px;
+      padding: 10px 20px;
+      font-size: 17px;
+      color: white;
+      background-color: dodgerblue;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      border: 1px solid blue;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+    }
+
+    .button:hover {
+      background-color: lime;
+      color: black;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 10px 0;
+      background: #004085;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <section class="reviews-section">
+    <h2>Customer Reviews</h2>
+    <div id="reviews-container">
+      <div class="review">
+        <h3>Bill Gates</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ - Great service and high-quality parts. Highly recommend!</p>
+      </div>
+      <div class="review">
+        <h3>Elon Musk</h3>
+        <p>⭐️⭐️⭐️⭐️ - Fast shipping and excellent customer support.</p>
+      </div>
+      <div class="review">
+        <h3>Jeff Bezos</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ - I found exactly what I needed at a great price!</p>
+      </div>
+      <div class="review">
+        <h3>Mark Zuckerberg</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ - Best Car Dealership!</p>
+      </div>
+      <div class="review">
+        <h3>Donald Trump</h3>
+        <p>⭐️⭐️⭐️⭐️⭐️ - Prices are very worth it!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="add-review-section">
+    <h3>Add Your Review</h3>
+    <input type="text" id="reviewer-name" placeholder="Your Name" required>
+    <textarea id="review-message" placeholder="Your Review" rows="4" required></textarea>
+    <input type="number" id="review-rating" placeholder="Rating (1-5)" min="1" max="5" required>
+    <button onclick="addReview()">Submit Review</button>
+  </section>
+
+  <a href="home.html" class="button">Return to Home</a>
+
+  <footer>
+    &copy; 2024 Masubay Car Parts Shop. All Rights Reserved.
+  </footer>
+
+  <script>
+    function addReview() {
+      const nameInput = document.getElementById('reviewer-name').value.trim();
+      const messageInput = document.getElementById('review-message').value.trim();
+      const ratingInput = document.getElementById('review-rating').value.trim();
+
+      if (nameInput === '' || messageInput === '' || ratingInput === '' || ratingInput < 1 || ratingInput > 5) {
+        alert('Please fill out all fields correctly.');
+        return;
+      }
+
+      const reviewsContainer = document.getElementById('reviews-container');
+
+      const newReview = document.createElement('div');
+      newReview.className = 'review';
+      newReview.innerHTML = `
+        <h3>${nameInput}</h3>
+        <p>${'⭐️'.repeat(ratingInput)} - ${messageInput}</p>
+      `;
+
+      reviewsContainer.appendChild(newReview);
+
+      // Clear input fields
+      document.getElementById('reviewer-name').value = '';
+      document.getElementById('review-message').value = '';
+      document.getElementById('review-rating').value = '';
+    }
+  </script>
+</body>
+</html>

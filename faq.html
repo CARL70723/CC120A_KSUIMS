@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: skyblue;
+    }
+
+    .faq-section {
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 80%;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      color: #333;
+      text-decoration: underline;
+    }
+
+    .faq {
+      margin: 10px 0;
+    }
+
+    .faq h3 {
+      color: #007BFF;
+      cursor: pointer;
+      padding: 10px;
+      background-color: #f1f1f1;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .faq h3:hover {
+      background-color: #e0e0e0;
+    }
+
+    .faq p {
+      color: #555;
+      margin-left: 20px;
+      display: none; /* Initially hide answers */
+      padding: 0 10px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-left: 600px;
+        font-size: 17px;
+        color: white;
+        background-color: dodgerblue;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        border: 1px solid blue;
+        cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: lime;
+    }
+  </style>
+</head>
+<body>
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    
+    <!-- First set of questions -->
+    <div class="faq">
+      <h3 onclick="toggleAnswer(this)">What are your payment methods?</h3>
+      <p>We accept credit cards, PayPal, and bank transfers.</p>
+    </div>
+    <div class="faq">
+      <h3 onclick="toggleAnswer(this)">Do you offer international shipping?</h3>
+      <p>Yes, we ship worldwide! Shipping fees may vary by region.</p>
+    </div>
+    <div class="faq">
+      <h3 onclick="toggleAnswer(this)">What is your return policy?</h3>
+      <p>You can return unused items within 30 days for a full refund.</p>
+    </div>
+
+    <!-- New set of questions -->
+    <div class="faq">
+      <h3 onclick="toggleAnswer(this)">How long will it take to receive my order?</h3>
+      <p>Orders typically ship within 1-2 business days. Delivery times vary based on location and shipping method selected.</p>
+    </div>
+    <div class="faq">
+      <h3 onclick="toggleAnswer(this)">Do you offer discounts on bulk orders?</h3>
+      <p>Yes, we offer discounts for bulk purchases. Please contact our sales team for more information on bulk pricing.</p>
+    </div>
+    <div class="faq">
+      <h3 onclick="toggleAnswer(this)">How do I track my order?</h3>
+      <p>Once your order ships, you will receive a tracking number via email. You can use this number to track your order on the courier's website.</p>
+    </div>
+    <div class="faq">
+      <h3 onclick="toggleAnswer(this)">Can I change my order after it has been placed?</h3>
+      <p>Once an order is placed, we cannot guarantee changes. However, please contact customer support as soon as possible, and we will try our best to assist.</p>
+    </div>
+    <div class="faq">
+      <h3 onclick="toggleAnswer(this)">Do you offer gift cards?</h3>
+      <p>Yes, we offer gift cards that can be used for purchases on our website. They are available in various denominations.</p>
+    </div>
+  </section>
+
+  <a href="home.html" class="button">Return to Home</a>
+
+  <script>
+    function toggleAnswer(element) {
+      const answer = element.nextElementSibling;
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+      } else {
+        answer.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
